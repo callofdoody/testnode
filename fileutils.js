@@ -15,9 +15,13 @@ module.exports = {
   },
   readymacro: function(filename) {
 
+  },
+
+
+
+  insertFileDetails: function(insertfilename, sourcepath,filelist) {
+    return insertFileDetails(insertfilename, sourcepath,filelist)
   }
-
-
 
 };
 
@@ -62,12 +66,15 @@ function createmacro(filename, dirname, variables, macrobody) {
     console.error('Error occurred:', error);
   }
 
-
-
-
 }
 
 
 
+function insertFileDetails(insertfilename, sourcepath,filelist) {
+  var f1 = {}
+  f1['filename'] = insertfilename
+  f1['path'] = sourcepath +"/"+ insertfilename
+  filelist.push(f1)
+}
 
 

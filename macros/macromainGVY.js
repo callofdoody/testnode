@@ -23,37 +23,38 @@ const scd_cgy = require('./macros_gvy/macros_scd_cgy')
 const scd_vanbby = require('./macros_gvy/macros_scd_vanbby')
 
 
-//let macro = `
+
+
 module.exports = {
 
 
   hofc_mvallsploutqs: function () {
-    // whatever
-    //return out()
+    
+    
     return macros_hofc_mvallsploutqs
   },
   rich_mvallsploutqs: function () {
-    // whatever
+    
     return macros_rich_mvallsploutqs
   },
 
   hofc_mvallsploutqs_fri: function () {
-    // whatever
-    //return out()
+    
+    
     return macros_hofc_mvallsploutqs_fri
   },
   rich_mvallsploutqs_fri: function () {
-    // whatever
+    
     return macros_rich_mvallsploutqs_fri
   },
 
   hofc_createoutqs_nextwk: function () {
-    // whatever
-    //return out()
+    
+    
     return macros_hofc_createoutqs_nextwk
   },
   rich_createoutqs_nextwk: function () {
-    // whatever
+    
     return macros_rich_createoutqs_nextwk
   },
 

@@ -5,25 +5,17 @@ const emailer = require('./emailutils')
 const file = require('./fileutils')
 const dates = require('./dateutils')
 const mainhandlerGVY = require('./mainhandlerGVY')
-const mainhandlerEVE = require('./mainhandlerEVE')
 const shiftcodes = require('./shiftcodes')
 
 const moveFile = require('move-file');
 
 
 
-var MAINSWITCH = true;
-
-var SHIFT = ""
-
-
-dates.SETANCHORDATE('Mon Apr 05 2021')
 
 
 
-var filelist = []
 
-var sample = [{"filename":"SAMPLE.mac", "path":"./SAMPLE/SAMPLE.mac" }]
+// MAIN PROC BELOW
 
 var dirname = './TEMP_'
   +SHIFT+"_"
@@ -35,37 +27,10 @@ fs.mkdir(dirname, (err) => {
     }
     console.log("Directory "+dirname+" is created.");
 });
-
-
-
-/*
-// EVENING SHIFT
-SHIFT = shiftcodes.EVE
-mainhandlerEVE.setDIR(dirname)
-const myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    var wpg = mainhandlerEVE.WPG_CHECKLISTS()
-    //var richh = mainhandlerEVE.RICH_CHECKLISTS()
-    //var hofc = mainhandlerEVE.HOFC_CHECKLISTS()  
-    //var wpgMOVE = mainhandlerEVE.WPG_MOVEALLS()
-    var cgyMOVE = mainhandlerEVE.CGY_MOVEALLS()  
-
-    filelist = filelist.concat(wpg);  
-    //filelist = filelist.concat(richh);
-    //filelist = filelist.concat(hofc); 
-    //filelist = filelist.concat(wpgMOVE); 
-    filelist = filelist.concat(cgyMOVE);            
-    resolve(filelist)
- 
-  }, 49999);
-});
-*/
-
-
-
-// GRAVEYARD SHIFT
-SHIFT = shiftcodes.GVY
 mainhandlerGVY.setDIR(dirname)
+
+
+
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     var sploutqs = mainhandlerGVY.CREATEALL_MVALLSPLOUTQS()
@@ -93,7 +58,6 @@ const myPromise = new Promise((resolve, reject) => {
 });
 
 
-
 myPromise
 .then(async filelist => {  
   if (MAINSWITCH) {
@@ -105,15 +69,3 @@ myPromise
 
 })
 
-
-
-const app = express();
-
-app.get('/', (req, res) => {
-
-  res.send(filelist)
-});
-
-app.listen(3000, () => {
-  console.log('server started');
-});
