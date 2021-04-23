@@ -378,7 +378,7 @@ function macrobody(prevdate_MMDDYYYY,
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "HLDOUTQSPL OUTQ(PDSYLIB020/LASER020A)"
+   autECLSession.autECLPS.SendKeys "HLDOUTQSPL OUTQ(LASER020A)"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -390,7 +390,7 @@ function macrobody(prevdate_MMDDYYYY,
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "HLDOUTQSPL OUTQ(PDSYLIB020/LASER020B)"
+   autECLSession.autECLPS.SendKeys "HLDOUTQSPL OUTQ(LASER020B)"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
