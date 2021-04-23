@@ -3594,6 +3594,155 @@ function macrobody(today_billdate_YYYYMMDD,
 
 
 
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[tab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "SQ"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[tab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "60"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 11,42,"10","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 11,43,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "ID"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[backtab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "BL"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll down]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[roll up]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[backtab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "s"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 6,54,"10","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 6,55,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[right]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "YES"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[tab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[right]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[left]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "`+ outq +`"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[tab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[tab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[tab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[tab]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[right]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[delete]"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "NO"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 6,2,"10","3c",3,10000
+
+   autECLSession.autECLPS.Wait 1547 
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[pf1]"
+   
+   autECLSession.autECLPS.WaitForAttrib 11,42,"10","3c",3,10000
+
+   autECLSession.autECLPS.Wait 1109 
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[pf1]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,20,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,21,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+ 
 
 
 

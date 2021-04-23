@@ -14,10 +14,21 @@ const moveFile = require('move-file');
 
 var MAINSWITCH = true;
 
-var SHIFT = ""
+var SHIFT = "GV3"
 
 
-dates.SETANCHORDATE('Mon Apr 05 2021')
+var GVY_ON = true
+var EVE_ON = true
+var WKNDFRI_ON = true
+var WKND_ON = true
+var EVESUN_ON = true
+
+
+var MOVESPLF_ON = true
+var MOVESPLF_ON = true
+
+
+dates.SETANCHORDATE('Mon Apr 19 2021')
 
 
 
@@ -44,17 +55,17 @@ SHIFT = shiftcodes.EVE
 mainhandlerEVE.setDIR(dirname)
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    var wpg = mainhandlerEVE.WPG_CHECKLISTS()
+    //var wpg = mainhandlerEVE.WPG_CHECKLISTS()
     //var richh = mainhandlerEVE.RICH_CHECKLISTS()
-    //var hofc = mainhandlerEVE.HOFC_CHECKLISTS()  
+    var hofc = mainhandlerEVE.HOFC_CHECKLISTS()  
     //var wpgMOVE = mainhandlerEVE.WPG_MOVEALLS()
-    var cgyMOVE = mainhandlerEVE.CGY_MOVEALLS()  
+    //var cgyMOVE = mainhandlerEVE.CGY_MOVEALLS()  
 
-    filelist = filelist.concat(wpg);  
+    //filelist = filelist.concat(wpg);  
     //filelist = filelist.concat(richh);
-    //filelist = filelist.concat(hofc); 
+    filelist = filelist.concat(hofc); 
     //filelist = filelist.concat(wpgMOVE); 
-    filelist = filelist.concat(cgyMOVE);            
+    //filelist = filelist.concat(cgyMOVE);            
     resolve(filelist)
  
   }, 49999);
@@ -68,24 +79,24 @@ SHIFT = shiftcodes.GVY
 mainhandlerGVY.setDIR(dirname)
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    var sploutqs = mainhandlerGVY.CREATEALL_MVALLSPLOUTQS()
+    //var sploutqs = mainhandlerGVY.CREATEALL_MVALLSPLOUTQS()
 
     var cgy = mainhandlerGVY.CGY_CHECKLISTS()
-    var vb = mainhandlerGVY.VANBBY_CHECKLISTS() 
+    //var vb = mainhandlerGVY.VANBBY_CHECKLISTS() 
     var inp = ["mon"]
-    var scd = mainhandlerGVY.SCD_VBCGY(inp)
+    //var scd = mainhandlerGVY.SCD_VBCGY(inp)
 
-    var richh = mainhandlerGVY.RICHHOFC_FULLCHECKLISTS()
-    var hofc = mainhandlerGVY.HOFC_FULLCHECKLISTS()
-    var vdivs = mainhandlerGVY.VANDIVS_FULLCHECKLISTS()
+    //var richh = mainhandlerGVY.RICHHOFC_FULLCHECKLISTS()
+    //var hofc = mainhandlerGVY.HOFC_FULLCHECKLISTS()
+    //var vdivs = mainhandlerGVY.VANDIVS_FULLCHECKLISTS()
   
-    filelist = filelist.concat(sploutqs);  
+    //filelist = filelist.concat(sploutqs);  
     filelist = filelist.concat(cgy);
-    filelist = filelist.concat(vb);
-    filelist = filelist.concat(scd);    
-    filelist = filelist.concat(richh);
-    filelist = filelist.concat(hofc);
-    filelist = filelist.concat(vdivs);
+    //filelist = filelist.concat(vb);
+    //filelist = filelist.concat(scd);    
+    //filelist = filelist.concat(richh);
+    //filelist = filelist.concat(hofc);
+    //filelist = filelist.concat(vdivs);
 
       resolve(filelist)
  

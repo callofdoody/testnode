@@ -9,4 +9,5 @@ module.exports = {
 
   BATCH1 : "BATCH1",
   BATCH2 : "BATCH2",
+  TEMP : "TEMP"
 }

@@ -144,31 +144,31 @@ function HOFC_CHECKLISTS(){
   HOFC_CHECKLIST(numdates.NUMDATE_EVGY_TUE, 
     dates.THISWEEK_MON_MMDD(),
     dates.THISWEEK_MON_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ1, filelist, filenames)
 
   HOFC_CHECKLIST(numdates.NUMDATE_EVGY_WED, 
     dates.THISWEEK_TUE_MMDD(),
     dates.THISWEEK_TUE_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ2, filelist, filenames)  
 
   HOFC_CHECKLIST(numdates.NUMDATE_EVGY_THR, 
     dates.THISWEEK_WED_MMDD(),
     dates.THISWEEK_WED_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ3, filelist, filenames)  
 
   HOFC_CHECKLIST(numdates.NUMDATE_EVGY_FRI, 
     dates.THISWEEK_THR_MMDD(),
     dates.THISWEEK_THR_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
   HOFC_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ5, filelist, filenames)                
 
   
@@ -192,31 +192,31 @@ function RICH_CHECKLISTS(){
   RICH_CHECKLIST(numdates.NUMDATE_EVGY_TUE, 
     dates.THISWEEK_MON_MMDD(),
     dates.THISWEEK_MON_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ1, filelist, filenames)
 
   RICH_CHECKLIST(numdates.NUMDATE_EVGY_WED, 
     dates.THISWEEK_TUE_MMDD(),
     dates.THISWEEK_TUE_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ2, filelist, filenames)  
 
   RICH_CHECKLIST(numdates.NUMDATE_EVGY_THR, 
     dates.THISWEEK_WED_MMDD(),
     dates.THISWEEK_WED_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ3, filelist, filenames)  
 
   RICH_CHECKLIST(numdates.NUMDATE_EVGY_FRI, 
     dates.THISWEEK_THR_MMDD(),
     dates.THISWEEK_THR_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
   RICH_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
-    scdbatches.BATCH1,
+    scdbatches.TEMP,
     outqs.OUTQ5, filelist, filenames)                
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
