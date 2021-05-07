@@ -14,11 +14,12 @@ const moveFile = require('move-file');
 
 var MAINSWITCH = true;
 
-var SHIFT = "EV3"
+var SHIFT = "GV3"
 
 
 var GVY_ON = false
-var EVE_ON = true
+var EVE_ON = false
+
 var WKNDFRI_ON = false
 var WKND_ON = false
 var EVESUN_ON = false
@@ -26,7 +27,7 @@ var EVESUN_ON = false
 
 var WPG_ON = false
 
-var CGYMOVE_ON = true
+var CGYMOVE_ON = false
 var WPGMOVE_ON = false
 
 var MOVESPLF_ON = false
@@ -35,6 +36,7 @@ var CGY_ON = false
 var VANBBY_ON = false
 var HOMEOFC_ON = false
 var RICHM_ON = false
+var SCD_VBCGY_ON = false
 
 
 dates.SETANCHORDATE('Mon May 03 2021')
@@ -105,26 +107,40 @@ if (GVY_ON) {
   // GRAVEYARD SHIFT
   SHIFT = shiftcodes.GVY
   mainhandlerGVY.setDIR(dirname)
-  const myPromise = new Promise((resolve, reject) => {
+  myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      //var sploutqs = mainhandlerGVY.CREATEALL_MVALLSPLOUTQS()
-
-      //var cgy = mainhandlerGVY.CGY_CHECKLISTS()
-      //var vb = mainhandlerGVY.VANBBY_CHECKLISTS() 
       var inp = ["mon"]
-      //var scd = mainhandlerGVY.SCD_VBCGY(inp)
 
-      //var richh = mainhandlerGVY.RICHHOFC_FULLCHECKLISTS()
-      var hofc = mainhandlerGVY.HOFC_FULLCHECKLISTS()
-      var vdivs = mainhandlerGVY.VANDIVS_FULLCHECKLISTS()
-    
-      //filelist = filelist.concat(sploutqs);  
-      //filelist = filelist.concat(cgy);
-      //filelist = filelist.concat(vb);
-      //filelist = filelist.concat(scd);    
-      //filelist = filelist.concat(richh);
-      filelist = filelist.concat(hofc);
-      filelist = filelist.concat(vdivs);
+      if (MOVESPLF_ON) {
+        var sploutqs = mainhandlerGVY.CREATEALL_MVALLSPLOUTQS()
+        filelist = filelist.concat(sploutqs);          
+      }
+
+      if (CGY_ON) {
+        var cgy = mainhandlerGVY.CGY_CHECKLISTS()
+        filelist = filelist.concat(cgy);        
+      }
+
+      if (HOMEOFC_ON) {
+        var hofc = mainhandlerGVY.HOFC_FULLCHECKLISTS()
+        filelist = filelist.concat(hofc);        
+      }
+
+      if (RICHM_ON) {
+        var richh = mainhandlerGVY.RICHHOFC_FULLCHECKLISTS()
+        filelist = filelist.concat(richh);
+      }
+
+      if (VANBBY_ON) {
+        var vb = mainhandlerGVY.VANBBY_CHECKLISTS() 
+        filelist = filelist.concat(vb);        
+      }
+
+      if (SCD_VBCGY_ON) {
+        var scd = mainhandlerGVY.SCD_VBCGY(inp)
+        filelist = filelist.concat(scd);         
+      }
+
 
         resolve(filelist)
   
