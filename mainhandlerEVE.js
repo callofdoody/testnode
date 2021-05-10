@@ -30,9 +30,25 @@ module.exports = {
     return HOFC_CHECKLISTS()
   },  
 
+  HOFC_REG_CHECKLISTS: function() {
+    return HOFC_REG_CHECKLISTS()
+  },    
+
+  HOFC_ADM_CHECKLISTS: function() {
+    return HOFC_ADM_CHECKLISTS()
+  },    
+
   RICH_CHECKLISTS: function() {
     return RICH_CHECKLISTS()
   },    
+
+  RICH_REG_CHECKLISTS: function() {
+    return RICH_REG_CHECKLISTS()
+  },     
+
+  RICH_ADM_CHECKLISTS: function() {
+    return RICH_ADM_CHECKLISTS()
+  },       
 
   CGY_MOVEALLS: function() {
     return CGY_MOVEALLS()
@@ -181,6 +197,97 @@ function HOFC_CHECKLISTS(){
 
 }
 
+ 
+ // ** NO SCDBATCHES  YET **
+function HOFC_REG_CHECKLISTS(){
+  var filelist = []
+  var filenames = []  
+
+  HOFC_REG_CHECKLIST(numdates.NUMDATE_EVGY_TUE, 
+    dates.THISWEEK_MON_MMDD(),
+    dates.THISWEEK_MON_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ1, filelist, filenames)
+
+  HOFC_REG_CHECKLIST(numdates.NUMDATE_EVGY_WED, 
+    dates.THISWEEK_TUE_MMDD(),
+    dates.THISWEEK_TUE_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ2, filelist, filenames)  
+
+  HOFC_REG_CHECKLIST(numdates.NUMDATE_EVGY_THR, 
+    dates.THISWEEK_WED_MMDD(),
+    dates.THISWEEK_WED_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ3, filelist, filenames)  
+
+  HOFC_REG_CHECKLIST(numdates.NUMDATE_EVGY_FRI, 
+    dates.THISWEEK_THR_MMDD(),
+    dates.THISWEEK_THR_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ4, filelist, filenames)  
+
+  HOFC_REG_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
+    dates.THISWEEK_FRI_MMDD(),
+    dates.THISWEEK_FRI_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ5, filelist, filenames)                
+
+  
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
+
+
+ 
+ // ** NO SCDBATCHES  YET **
+function HOFC_ADM_CHECKLISTS(){
+  var filelist = []
+  var filenames = []  
+
+  HOFC_ADM_CHECKLIST(numdates.NUMDATE_EVGY_TUE, 
+    dates.THISWEEK_MON_MMDD(),
+    dates.THISWEEK_MON_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ1, filelist, filenames)
+
+  HOFC_ADM_CHECKLIST(numdates.NUMDATE_EVGY_WED, 
+    dates.THISWEEK_TUE_MMDD(),
+    dates.THISWEEK_TUE_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ2, filelist, filenames)  
+
+  HOFC_ADM_CHECKLIST(numdates.NUMDATE_EVGY_THR, 
+    dates.THISWEEK_WED_MMDD(),
+    dates.THISWEEK_WED_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ3, filelist, filenames)  
+
+  HOFC_ADM_CHECKLIST(numdates.NUMDATE_EVGY_FRI, 
+    dates.THISWEEK_THR_MMDD(),
+    dates.THISWEEK_THR_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ4, filelist, filenames)  
+
+  HOFC_ADM_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
+    dates.THISWEEK_FRI_MMDD(),
+    dates.THISWEEK_FRI_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ5, filelist, filenames)                
+
+  
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+
+
+}
+
 
 
  
@@ -224,6 +331,135 @@ function RICH_CHECKLISTS(){
   
   return filelist
 }
+
+ // ** NO SCDBATCHES  YET **
+function RICH_CHECKLISTS(){
+  var filelist = []
+  var filenames = []  
+
+  RICH_CHECKLIST(numdates.NUMDATE_EVGY_TUE, 
+    dates.THISWEEK_MON_MMDD(),
+    dates.THISWEEK_MON_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ1, filelist, filenames)
+
+  RICH_CHECKLIST(numdates.NUMDATE_EVGY_WED, 
+    dates.THISWEEK_TUE_MMDD(),
+    dates.THISWEEK_TUE_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ2, filelist, filenames)  
+
+  RICH_CHECKLIST(numdates.NUMDATE_EVGY_THR, 
+    dates.THISWEEK_WED_MMDD(),
+    dates.THISWEEK_WED_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ3, filelist, filenames)  
+
+  RICH_CHECKLIST(numdates.NUMDATE_EVGY_FRI, 
+    dates.THISWEEK_THR_MMDD(),
+    dates.THISWEEK_THR_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ4, filelist, filenames)  
+
+  RICH_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
+    dates.THISWEEK_FRI_MMDD(),
+    dates.THISWEEK_FRI_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ5, filelist, filenames)                
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
+
+
+ // ** NO SCDBATCHES  YET **
+function RICH_ADM_CHECKLISTS(){
+  var filelist = []
+  var filenames = []  
+
+  RICH_ADM_CHECKLIST(numdates.NUMDATE_EVGY_TUE, 
+    dates.THISWEEK_MON_MMDD(),
+    dates.THISWEEK_MON_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ1, filelist, filenames)
+
+  RICH_ADM_CHECKLIST(numdates.NUMDATE_EVGY_WED, 
+    dates.THISWEEK_TUE_MMDD(),
+    dates.THISWEEK_TUE_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ2, filelist, filenames)  
+
+  RICH_ADM_CHECKLIST(numdates.NUMDATE_EVGY_THR, 
+    dates.THISWEEK_WED_MMDD(),
+    dates.THISWEEK_WED_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ3, filelist, filenames)  
+
+  RICH_ADM_CHECKLIST(numdates.NUMDATE_EVGY_FRI, 
+    dates.THISWEEK_THR_MMDD(),
+    dates.THISWEEK_THR_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ4, filelist, filenames)  
+
+  RICH_ADM_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
+    dates.THISWEEK_FRI_MMDD(),
+    dates.THISWEEK_FRI_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ5, filelist, filenames)                
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
+
+
+ // ** NO SCDBATCHES  YET **
+function RICH_REG_CHECKLISTS(){
+  var filelist = []
+  var filenames = []  
+
+  RICH_REG_CHECKLIST(numdates.NUMDATE_EVGY_TUE, 
+    dates.THISWEEK_MON_MMDD(),
+    dates.THISWEEK_MON_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ1, filelist, filenames)
+
+  RICH_REG_CHECKLIST(numdates.NUMDATE_EVGY_WED, 
+    dates.THISWEEK_TUE_MMDD(),
+    dates.THISWEEK_TUE_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ2, filelist, filenames)  
+
+  RICH_REG_CHECKLIST(numdates.NUMDATE_EVGY_THR, 
+    dates.THISWEEK_WED_MMDD(),
+    dates.THISWEEK_WED_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ3, filelist, filenames)  
+
+  RICH_REG_CHECKLIST(numdates.NUMDATE_EVGY_FRI, 
+    dates.THISWEEK_THR_MMDD(),
+    dates.THISWEEK_THR_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ4, filelist, filenames)  
+
+  RICH_REG_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
+    dates.THISWEEK_FRI_MMDD(),
+    dates.THISWEEK_FRI_MMDDYYYY(), 
+    scdbatches.TEMP,
+    outqs.OUTQ5, filelist, filenames)                
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
+
+
+
+
 
 /*
 
@@ -446,6 +682,37 @@ function HOFC_CHECKLIST(today_numdate, today_MMDD,
 }
 
 
+function HOFC_REG_CHECKLIST(today_numdate, today_MMDD, 
+    scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning, filelist, filenames) {
+  var fname = macro.scd_hofc_REG().filename(MACROSERIES+"_"+EVE_SHIFT, today_numdate,
+    today_MMDD)
+  var variables = macro.scd_hofc_REG().variables(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)
+  var macrobody = macro.scd_hofc_REG().macrobody(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)    
+  file.createmacro(fname, DIR, variables, macrobody)
+  filenames.push(fname)
+}
+
+function HOFC_ADM_CHECKLIST(today_numdate, today_MMDD, 
+    scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning, filelist, filenames) {
+  var fname = macro.scd_hofc_ADM().filename(MACROSERIES+"_"+EVE_SHIFT, today_numdate,
+    today_MMDD)
+  var variables = macro.scd_hofc_ADM().variables(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)
+  var macrobody = macro.scd_hofc_ADM().macrobody(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)    
+  file.createmacro(fname, DIR, variables, macrobody)
+  filenames.push(fname)
+}
 
 
 function RICH_CHECKLIST(today_numdate, today_MMDD, 
@@ -463,6 +730,41 @@ function RICH_CHECKLIST(today_numdate, today_MMDD,
   file.createmacro(fname, DIR, variables, macrobody)
   filenames.push(fname)
 }
+
+
+function RICH_ADM_CHECKLIST(today_numdate, today_MMDD, 
+    scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning, filelist, filenames) {
+  var fname = macro.scd_rich_ADM().filename(MACROSERIES+"_"+EVE_SHIFT, today_numdate,
+    today_MMDD)
+  var variables = macro.scd_rich_ADM().variables(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)
+  var macrobody = macro.scd_rich_ADM().macrobody(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)    
+  file.createmacro(fname, DIR, variables, macrobody)
+  filenames.push(fname)
+}
+
+
+function RICH_REG_CHECKLIST(today_numdate, today_MMDD, 
+    scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning, filelist, filenames) {
+  var fname = macro.scd_rich_REG().filename(MACROSERIES+"_"+EVE_SHIFT, today_numdate,
+    today_MMDD)
+  var variables = macro.scd_rich_REG().variables(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)
+  var macrobody = macro.scd_rich_REG().macrobody(scddate_MMDDYYYY,
+    scdbatch,
+    outq_morning)    
+  file.createmacro(fname, DIR, variables, macrobody)
+  filenames.push(fname)
+}
+
 
 
 

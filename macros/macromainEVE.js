@@ -7,6 +7,14 @@ const wpg_THR = require('./macros_eve/macros_wpg_THR')
 const scd_hofc = require('./macros_eve/macros_hofc_ALL_NOTHOENDP')
 const scd_rich = require('./macros_eve/macros_rich_ALL_NOTHOENDP')
 
+
+const scd_hofc_REG = require('./macros_eve/macros_hofc_REG_NOTHOENDP')
+const scd_rich_REG = require('./macros_eve/macros_rich_REG_NOTHOENDP')
+
+const scd_hofc_ADM = require('./macros_eve/macros_hofc_ADM_NOTHOENDP')
+const scd_rich_ADM = require('./macros_eve/macros_rich_ADM_NOTHOENDP')
+
+
 const cgy_MOVEALL = require('./macros_eve/macros_cgy__MOVEALL')
 const wpg_MOVEALL = require('./macros_eve/macros_wpg__MOVEALL')
 
@@ -22,6 +30,12 @@ module.exports = {
 
   scd_hofc: function () {return scd_hofc},
   scd_rich: function () {return scd_rich},
+
+  scd_hofc_ADM: function () {return scd_hofc_ADM},
+  scd_rich_ADM: function () {return scd_rich_ADM},
+
+  scd_hofc_REG: function () {return scd_hofc_REG},
+  scd_rich_REG: function () {return scd_rich_REG},
 
   cgy_MOVEALL: function () {return cgy_MOVEALL},
   wpg_MOVEALL: function () {return wpg_MOVEALL}  

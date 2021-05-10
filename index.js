@@ -14,11 +14,11 @@ const moveFile = require('move-file');
 
 var MAINSWITCH = true;
 
-var SHIFT = "GV3"
+var SHIFT = "EV3"
 
 
 var GVY_ON = false
-var EVE_ON = false
+var EVE_ON = true
 
 var WKNDFRI_ON = false
 var WKND_ON = false
@@ -30,6 +30,11 @@ var WPG_ON = false
 var CGYMOVE_ON = false
 var WPGMOVE_ON = false
 
+var HOMEOFC_REG_ON = true
+var RICHM_REG_ON = false
+var HOMEOFC_ADM_ON = true
+var RICHM_ADM_ON = false
+
 var MOVESPLF_ON = false
 
 var CGY_ON = false
@@ -39,7 +44,7 @@ var RICHM_ON = false
 var SCD_VBCGY_ON = false
 
 
-dates.SETANCHORDATE('Mon May 03 2021')
+dates.SETANCHORDATE('Mon May 10 2021')
 
 
 
@@ -73,17 +78,30 @@ if (EVE_ON) {
       }
 
 
-      if (RICHM_ON) {
-        var richh = mainhandlerEVE.RICH_CHECKLISTS()
+      if (RICHM_ADM_ON) {
+        var richh = mainhandlerEVE.RICH_ADM_CHECKLISTS()
         filelist = filelist.concat(richh);
       }
 
+      if (RICHM_REG_ON) {
+        var richh = mainhandlerEVE.RICH_REG_CHECKLISTS()
+        filelist = filelist.concat(richh);
+      }
        
       if (HOMEOFC_ON) {
         var hofc = mainhandlerEVE.HOFC_CHECKLISTS()  
         filelist = filelist.concat(hofc); 
       }
-     
+      if (HOMEOFC_REG_ON) {
+        var hofc = mainhandlerEVE.HOFC_REG_CHECKLISTS()  
+        filelist = filelist.concat(hofc); 
+      }
+
+      if (HOMEOFC_ADM_ON) {
+        var hofc = mainhandlerEVE.HOFC_ADM_CHECKLISTS()  
+        filelist = filelist.concat(hofc); 
+      }
+               
       if (WPGMOVE_ON) {
         var wpgMOVE = mainhandlerEVE.WPG_MOVEALLS()
         filelist = filelist.concat(wpgMOVE); 
