@@ -14,33 +14,32 @@ const moveFile = require('move-file');
 
 var MAINSWITCH = true;
 
-var SHIFT = "EVTRY2"
+var SHIFT = "GV1"
 
-var MACROTIMER = 79999
 
-var GVY_ON = false
-var EVE_ON = true
+var GVY_ON = true
+var EVE_ON = false
 
 var WKNDFRI_ON = false
 var WKND_ON = false
 var EVESUN_ON = false
 
 // =============
-var WPG_ON = true
+var WPG_ON = false
 
 var CGYMOVE_ON = false
 var WPGMOVE_ON = false
 
-var HOMEOFC_REG_ON = false
-var RICHM_REG_ON = false
-var HOMEOFC_ADM_ON = false
-var RICHM_ADM_ON = false
+var HOMEOFC_REG_ON = true
+var RICHM_REG_ON = true
+var HOMEOFC_ADM_ON = true
+var RICHM_ADM_ON = true
 
 
 // =============
 var MOVESPLF_ON = true
 
-var CGY_ON = false
+var CGY_ON = true
 var VANBBY_ON = false
 var VANDIVS_ON = false
 
@@ -121,7 +120,7 @@ if (EVE_ON) {
          
       resolve(filelist)
   
-    }, 69999);
+    }, 49999);
   });
 }
 
@@ -174,7 +173,7 @@ if (GVY_ON) {
 
         resolve(filelist)
   
-    }, MACROTIMER);
+    }, 79999);
   });
 }
 

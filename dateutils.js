@@ -358,7 +358,27 @@ module.exports = {
     return date_YYYYMMDD(TWOWEEKSAGO_SUN())
   },
 
-
+  TWOWEEKSAGO_MON_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOWEEKSAGO_MON())
+  },
+  TWOWEEKSAGO_TUE_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOWEEKSAGO_TUE())
+  },
+  TWOWEEKSAGO_WED_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOWEEKSAGO_WED())
+  },
+  TWOWEEKSAGO_THR_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOWEEKSAGO_THR())
+  },
+  TWOWEEKSAGO_FRI_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOWEEKSAGO_FRI())
+  },
+  TWOWEEKSAGO_SAT_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOWEEKSAGO_SAT())
+  },
+  TWOWEEKSAGO_SUN_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOWEEKSAGO_SUN())
+  },
 
 
 
@@ -446,6 +466,28 @@ module.exports = {
   TWOMONTHSLATER_FRI_YYYYMMDD: function() {
     return date_YYYYMMDD(TWOMONTHSLATER_FRI())
   },  
+
+
+  TWOMONTHSLATER_MON_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOMONTHSLATER_MON())
+  },
+
+  TWOMONTHSLATER_TUE_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOMONTHSLATER_TUE())
+  },
+
+  TWOMONTHSLATER_WED_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOMONTHSLATER_WED())
+  },
+
+  TWOMONTHSLATER_THR_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOMONTHSLATER_THR())
+  },
+
+  TWOMONTHSLATER_FRI_YYYY_MM_DD: function() {
+    return date_YYYY_MM_DD(TWOMONTHSLATER_FRI())
+  },
+
 
 
 

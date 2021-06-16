@@ -1,0 +1,890 @@
+[PCOMM SCRIPT HEADER]
+LANGUAGE=VBSCRIPT
+DESCRIPTION=
+[PCOMM SCRIPT SOURCE]
+OPTION EXPLICIT
+autECLSession.SetConnectionByName(ThisSessionName)
+
+
+    REM 1ST MON OUTQ IS: 0614
+
+    REM 1ST TUES OUTQ IS: 0615
+
+    REM 1ST WED OUTQ IS: 0616
+
+    REM 1ST THURS OUTQ IS: 0617
+
+    REM 1ST FRI OUTQ IS: 0618
+
+    REM 1ST SAT OUTQ IS: 0619
+    
+
+REM This line calls the macro subroutine
+subSub1_
+
+sub subSub1_()
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[pf7]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+
+
+
+
+
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB000/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB007/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable   
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB016/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+      
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB044/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB053/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB068/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB071/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+                                    
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB077/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB116/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB130/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB171/OUTQ10614) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB000/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB007/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable   
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB016/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+      
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB044/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB053/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB068/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB071/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+                                    
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB077/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB116/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB130/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB171/OUTQ20615) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB000/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB007/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable   
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB016/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+      
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB044/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB053/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB068/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB071/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+                                    
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB077/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB116/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB130/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB171/OUTQ30616) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB000/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB007/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable   
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB016/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+      
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB044/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB053/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB068/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB071/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+                                    
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB077/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB116/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB130/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB171/OUTQ40617) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB000/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB007/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable   
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB016/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+      
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB044/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB053/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB068/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB071/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+                                    
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB077/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB116/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB130/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB171/OUTQ50618) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+
+
+
+
+
+
+
+
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB007/OUTQ60619) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable   
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB016/OUTQ60619) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+      
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB044/OUTQ60619) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB053/OUTQ60619) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+            
+
+
+   
+
+
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "CRTOUTQ OUTQ(PDSYLIB071/OUTQ60619) SEQ(*JOBNBR) DSPDTA(*YES) JOBSEP(1)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+                                    
+
+
+
+
+
+
+
+
+
+
+           
+   
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "DONE"
+  
+
+
+end sub

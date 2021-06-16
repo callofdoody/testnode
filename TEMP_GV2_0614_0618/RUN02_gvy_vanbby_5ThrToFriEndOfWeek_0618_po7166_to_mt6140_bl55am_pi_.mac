@@ -1,88 +1,42 @@
-const macroutils = require('./macroutils_mvallsplfoutqs')
-const fs = require('fs');
-
-const MACRO_LABEL = "po7166_to_mt6140_bl55am_pi"
-const MACRO_ENV = "vanbby"
-
-module.exports = {
-  filename: function(series, numday, date_MMDD) {
-    return macroutils.filename(series, 
-    MACRO_ENV, MACRO_LABEL, numday, date_MMDD)
-  },
+[PCOMM SCRIPT HEADER]
+LANGUAGE=VBSCRIPT
+DESCRIPTION=
+[PCOMM SCRIPT SOURCE]
+OPTION EXPLICIT
+autECLSession.SetConnectionByName(ThisSessionName)
 
 
-  variables: function (today_billdate_YYYYMMDD,
-  yesterday_billdate_YYYYMMDD, 
-  nextmon_billdate_YYYYMMDD,
-  firstofmonth_billdate_YYYYMMDD,
-  firstofPREVmonth_billdate_YYYYMMDD,  
-  outq,earliermon_billdate_YYYYMMDD,macrodate_MMDDYYYY,scdbatch) {
-    return variables(today_billdate_YYYYMMDD, 
-  yesterday_billdate_YYYYMMDD, 
-  nextmon_billdate_YYYYMMDD,
-  firstofmonth_billdate_YYYYMMDD,
-  firstofPREVmonth_billdate_YYYYMMDD,
-  outq,earliermon_billdate_YYYYMMDD,macrodate_MMDDYYYY,scdbatch)
-  },
 
-  macrobody: function (today_billdate_YYYYMMDD,
-  yesterday_billdate_YYYYMMDD, 
-  nextmon_billdate_YYYYMMDD,
-  firstofmonth_billdate_YYYYMMDD,
-  firstofPREVmonth_billdate_YYYYMMDD,  
-  outq,earliermon_billdate_YYYYMMDD,macrodate_MMDDYYYY,scdbatch) {
-    return macrobody(today_billdate_YYYYMMDD, 
-  yesterday_billdate_YYYYMMDD, 
-  nextmon_billdate_YYYYMMDD,
-  firstofmonth_billdate_YYYYMMDD,
-  firstofPREVmonth_billdate_YYYYMMDD,
-  outq,earliermon_billdate_YYYYMMDD,macrodate_MMDDYYYY,scdbatch)
-  } 
+REM TODAYS **BILLING** date YYYYMMDD is: 20210618
 
+REM YESTERDAYS **BILLING** date YYYYMMDD is: 20210617
 
-}
+REM Next Monday Date YYYYMMDD is: 20210621
 
-
-function variables(today_billdate_YYYYMMDD, 
-  yesterday_billdate_YYYYMMDD, 
-  nextmon_billdate_YYYYMMDD,
-  firstofmonth_billdate_YYYYMMDD,
-  firstofPREVmonth_billdate_YYYYMMDD,
-  outq,earliermon_billdate_YYYYMMDD,macrodate_MMDDYYYY,scdbatch) {
-  return `
-
-REM TODAYS **BILLING** date YYYYMMDD is: `+today_billdate_YYYYMMDD+`
-
-REM YESTERDAYS **BILLING** date YYYYMMDD is: `+yesterday_billdate_YYYYMMDD+`
-
-REM Next Monday Date YYYYMMDD is: `+nextmon_billdate_YYYYMMDD+`
-
-REM EARLIER MONDAY **BILLING** date YYYYMMDD is: `+earliermon_billdate_YYYYMMDD+`
+REM EARLIER MONDAY **BILLING** date YYYYMMDD is: 20210614
 
 REM EARLIER SUNDAY **BILLING** date YYYYMMDD is: 2021XXXX
 
-REM First day of THIS month YYYYMMDD is: `+firstofmonth_billdate_YYYYMMDD+`
+REM First day of THIS month YYYYMMDD is: 20210601
 
-REM First day of last month YYYYMMDD is: `+firstofPREVmonth_billdate_YYYYMMDD+`
+REM First day of last month YYYYMMDD is: 20210501
 
-REM OUTQ of the day is: `+outq+`
+REM OUTQ of the day is: OUTQ5
 
 
-REM MACRO DATE MMDDYYYY IS: `+macrodate_MMDDYYYY+`
+REM MACRO DATE MMDDYYYY IS: 06182021
 
-REM SCDBATCH IS: `+scdbatch+`
-
-`}
+REM SCDBATCH IS: TEMP
 
 
 
-function macrobody  (today_billdate_YYYYMMDD, 
-  yesterday_billdate_YYYYMMDD, 
-  nextmon_billdate_YYYYMMDD,
-  firstofmonth_billdate_YYYYMMDD,
-  firstofPREVmonth_billdate_YYYYMMDD,
-  outq,earliermon_billdate_YYYYMMDD,macrodate_MMDDYYYY,scdbatch) {
-  return `  
+REM This line calls the macro subroutine
+subSub1_
+
+sub subSub1_()
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+  
   
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[pf23]"
@@ -148,7 +102,7 @@ function macrobody  (today_billdate_YYYYMMDD,
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+firstofPREVmonth_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210501"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
@@ -157,7 +111,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "S"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210618"
 
 
    autECLSession.autECLOIA.WaitForInputReady
@@ -184,7 +138,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -303,7 +257,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210618"
 
 
    autECLSession.autECLOIA.WaitForInputReady
@@ -312,7 +266,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "S"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+nextmon_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210621"
 
 
    autECLSession.autECLOIA.WaitForInputReady
@@ -341,7 +295,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -422,7 +376,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForAppAvailable
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+yesterday_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210617"
 
 
 
@@ -452,7 +406,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -527,13 +481,13 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210618"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"   
+   autECLSession.autECLPS.SendKeys "20210618"   
 
 
    autECLSession.autECLOIA.WaitForInputReady
@@ -620,7 +574,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -704,13 +658,13 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+earliermon_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210614"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"   
+   autECLSession.autECLPS.SendKeys "20210618"   
 
 
 
@@ -784,7 +738,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -867,13 +821,13 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+earliermon_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210614"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"   
+   autECLSession.autECLPS.SendKeys "20210618"   
 
 
    autECLSession.autECLOIA.WaitForInputReady
@@ -960,7 +914,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -1044,13 +998,13 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+earliermon_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210614"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"   
+   autECLSession.autECLPS.SendKeys "20210618"   
 
 
    autECLSession.autECLOIA.WaitForInputReady
@@ -1137,7 +1091,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -1252,7 +1206,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[delete]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+yesterday_billdate_YYYYMMDD+`" 
+   autECLSession.autECLPS.SendKeys "20210617" 
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
@@ -1280,7 +1234,7 @@ function macrobody  (today_billdate_YYYYMMDD,
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+yesterday_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210617"
 
 
 
@@ -1428,7 +1382,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[delete]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+firstofmonth_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210601"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
@@ -1455,7 +1409,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[delete]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210618"
 
 
 
@@ -1488,7 +1442,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -1594,7 +1548,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -1701,7 +1655,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -1801,7 +1755,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[delete]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+yesterday_billdate_YYYYMMDD+`" 
+   autECLSession.autECLPS.SendKeys "20210617" 
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
@@ -1828,7 +1782,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[delete]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+yesterday_billdate_YYYYMMDD+`" 
+   autECLSession.autECLPS.SendKeys "20210617" 
 
 
 
@@ -1860,7 +1814,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -1931,7 +1885,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForAppAvailable
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+today_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210618"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
@@ -1986,7 +1940,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -2098,7 +2052,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -2192,7 +2146,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+firstofmonth_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210601"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -2253,7 +2207,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -2706,7 +2660,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+firstofmonth_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210601"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[pf21]"
    
@@ -2759,7 +2713,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -2911,7 +2865,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -3414,7 +3368,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[delete]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+yesterday_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210617"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
@@ -3442,7 +3396,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "[delete]"
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+yesterday_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210617"
 
 
    autECLSession.autECLOIA.WaitForInputReady
@@ -3622,7 +3576,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -3752,7 +3706,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -3867,7 +3821,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -3989,7 +3943,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4109,7 +4063,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4251,7 +4205,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4293,7 +4247,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -4372,7 +4326,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4479,7 +4433,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4571,7 +4525,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4689,7 +4643,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4800,7 +4754,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -4934,7 +4888,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -5091,7 +5045,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -5188,7 +5142,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050001)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050001)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -5292,7 +5246,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForAppAvailable
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+earliermon_billdate_YYYYMMDD+`"
+   autECLSession.autECLPS.SendKeys "20210614"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -5343,7 +5297,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -5451,7 +5405,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050002)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050002)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -5593,7 +5547,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -5699,7 +5653,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050003)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050003)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -5823,7 +5777,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -5931,7 +5885,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050004)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050004)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -6055,7 +6009,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -6157,7 +6111,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050005)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050005)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -6287,7 +6241,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -6399,7 +6353,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050006)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050006)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -6521,7 +6475,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -6625,7 +6579,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050007)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050007)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -6771,7 +6725,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -6877,7 +6831,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050008)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050008)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -7009,7 +6963,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+outq+`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -7119,7 +7073,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "SCDDATE(`+macrodate_MMDDYYYY+`) JOBQ(`+scdbatch+`) SCDTIME(050009)"
+   autECLSession.autECLPS.SendKeys "SCDDATE(06182021) JOBQ(TEMP) SCDTIME(050009)"
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[backtab]"
@@ -7271,7 +7225,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[delete]"
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "`+ outq +`"
+   autECLSession.autECLPS.SendKeys "OUTQ5"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[tab]"
    autECLSession.autECLOIA.WaitForInputReady
@@ -7338,4 +7292,7 @@ function macrobody  (today_billdate_YYYYMMDD,
    autECLSession.autECLPS.SendKeys "DONE"
 
 
-`}
+
+
+
+end sub

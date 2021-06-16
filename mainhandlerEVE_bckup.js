@@ -73,7 +73,7 @@ function WPG_CHECKLISTS() {
   var filelist = []
   var filenames = []  
 
-
+/*
   WPG_CHECKLIST_MON(numdates.NUMDATE_EVGY_TUE, 
     dates.THISWEEK_MON_MMDD(), 
     dates.THISWEEK_TUE_YYYYMMDD(), 
@@ -90,8 +90,26 @@ function WPG_CHECKLISTS() {
     dates.NEXTWEEK_MON_YYYY_MM_DD(),      
     dates.THISWEEK_THR_YYYY_MM_DD(), 
     outqs.OUTQ3, filelist, filenames)  
+*/
 
+/*
+    tonight_billdate_YYYY_MM_DD, 
+    nextweekmon_billdate_YYYY_MM_DD,
+    tommorrow_night_billdate_YYYY_MM_DD,
+    twoweeksago_date_YYYYMMDD,
+    twomonthslater_date_YYYYMMDD,
+*/
 
+/*
+(today_numdate, 
+    today_MMDD, 
+    tonight_billdate_YYYY_MM_DD, 
+    nextweekmon_billdate_YYYY_MM_DD,
+    tommorrow_night_billdate_YYYY_MM_DD,
+    twoweeksago_date_YYYYMMDD,
+    twomonthslater_date_YYYYMMDD,
+      outq, filelist, filenames)
+ */
 
   WPG_CHECKLIST_WED(numdates.NUMDATE_EVGY_THR, 
     dates.THISWEEK_WED_MMDD(), 
@@ -99,23 +117,35 @@ function WPG_CHECKLISTS() {
     dates.THISWEEK_THR_YYYY_MM_DD(),   
     dates.NEXTWEEK_MON_YYYY_MM_DD(),
     dates.THISWEEK_FRI_YYYY_MM_DD(),
-    dates.TWOWEEKSAGO_THR_YYYY_MM_DD(), 
-    dates.TWOMONTHSLATER_THR_YYYY_MM_DD(),
+    dates.TWOWEEKSAGO_THR_YYYYMMDD(), 
+    dates.TWOMONTHSLATER_THR_YYYYMMDD(),
     outqs.OUTQ4, filelist, filenames)  
 
+/*
 
+
+/*
+
+    tonight_billdate_YYYYMMDD,
+    tonight_billdate_YYYY_MM_DD, 
+    nextweekmon_billdate_YYYY_MM_DD,
+    tommorrow_night_billdate_YYYY_MM_DD,
+    firstofmonth_date_YYYY_MM_DD,
+    firstofmonth_date_YYYYMMDD,
+    thisweekmon_date_YYYYMMDD,
+*/
+/*
   WPG_CHECKLIST_THR(numdates.NUMDATE_EVGY_FRI, 
     dates.THISWEEK_THR_MMDD(), 
     dates.THISWEEK_FRI_YYYYMMDD(), 
     dates.THISWEEK_FRI_YYYY_MM_DD(),
-    // dates.TWOWEEKSLATER_MON_YYYY_MM_DD(),
-    dates.NEXTWEEK_MON_YYYY_MM_DD(),      
+    dates.TWOWEEKSLATER_MON_YYYY_MM_DD(),      
     dates.NEXTWEEK_MON_YYYY_MM_DD(), 
     dates.THISWEEK_FRI_FIRSTOFMONTH_YYYY_MM_DD(),
     dates.THISWEEK_FRI_FIRSTOFMONTH_YYYYMMDD(),
     dates.THISWEEK_MON_YYYYMMDD(),    
-    outqs.OUTQ5, filelist, filenames)      
-
+    outqs.OUTQ3, filelist, filenames)      
+*/
 
 
   for(i in filenames) {
@@ -444,6 +474,12 @@ function RICH_REG_CHECKLISTS(){
 
 
 
+
+
+/*
+
+*/
+
 function WPG_MOVEALLS(){
   var filelist = []
   var filenames = []  
@@ -471,6 +507,13 @@ function WPG_MOVEALLS(){
     dates.THISWEEK_THR_MMDDYYYY(),
     dates.THISWEEK_THR_MMDDYY(), 
     outqs.OUTQ4, filelist, filenames)  
+  /*
+  WPG_MOVEALL(numdates.NUMDATE_EVGY_MON, 
+    dates.THISWEEK_FRI_MMDD(),
+    dates.THISWEEK_FRI_MMDDYYYY(),
+    dates.THISWEEK_FRI_MMDDYY(), 
+    outqs.OUTQ5, filelist, filenames) 
+   */
 
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
@@ -504,7 +547,12 @@ function CGY_MOVEALLS(){
     dates.THISWEEK_THR_MMDD(),
     dates.THISWEEK_THR_MMDDYYYY(),
     outqs.OUTQ4, filelist, filenames)  
-
+  /*
+  CGY_MOVEALL(numdates.NUMDATE_EVGY_MON, 
+    dates.THISWEEK_FRI_MMDD(),
+    dates.THISWEEK_FRI_MMDDYYYY(),
+    outqs.OUTQ5, filelist, filenames) 
+   */
 
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
@@ -572,8 +620,8 @@ function WPG_CHECKLIST_WED(today_numdate, today_MMDD,
     tonight_billdate_YYYY_MM_DD, 
     nextweekmon_billdate_YYYY_MM_DD,
     tommorrow_night_billdate_YYYY_MM_DD,
-    twoweeksago_date_YYYY_MM_DD,
-    twomonthslater_date_YYYY_MM_DD,
+    twoweeksago_date_YYYYMMDD,
+    twomonthslater_date_YYYYMMDD,
       outq, filelist, filenames) {
   var fname = macro.wpg_WED().filename(MACROSERIES+"_"+EVE_SHIFT, today_numdate,
     today_MMDD)
@@ -582,21 +630,35 @@ function WPG_CHECKLIST_WED(today_numdate, today_MMDD,
     tonight_billdate_YYYY_MM_DD, 
     nextweekmon_billdate_YYYY_MM_DD,
     tommorrow_night_billdate_YYYY_MM_DD,
-    twoweeksago_date_YYYY_MM_DD,
-    twomonthslater_date_YYYY_MM_DD,
+    twoweeksago_date_YYYYMMDD,
+    twomonthslater_date_YYYYMMDD,
       outq)
   var macrobody = macro.wpg_WED().macrobody(
     tonight_billdate_YYYYMMDD,
     tonight_billdate_YYYY_MM_DD, 
     nextweekmon_billdate_YYYY_MM_DD,
     tommorrow_night_billdate_YYYY_MM_DD,
-    twoweeksago_date_YYYY_MM_DD,
-    twomonthslater_date_YYYY_MM_DD,
+    twoweeksago_date_YYYYMMDD,
+    twomonthslater_date_YYYYMMDD,
       outq)    
   file.createmacro(fname, DIR, variables, macrobody)
   filenames.push(fname)
 }
+/*
+    tonight_billdate_YYYY_MM_DD, 
+    nextweekmon_billdate_YYYY_MM_DD,
+    tommorrow_night_billdate_YYYY_MM_DD,
+    twoweeksago_date_YYYYMMDD,
+    twomonthslater_date_YYYYMMDD,
 
+(tonight_billdate_YYYYMMDD,
+  tonight_billdate_YYYY_MM_DD, 
+  nextweekmon_billdate_YYYY_MM_DD,
+  tommorrow_night_billdate_YYYY_MM_DD,
+  twoweeksago_date_YYYYMMDD,
+  twomonthslater_date_YYYYMMDD,
+  outq)    
+*/
 
 
 

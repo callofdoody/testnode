@@ -72,11 +72,11 @@ function SCD_VBCGY(inp) {
 
 
  // ** NO SCDBATCHES  YET **
-  var mon_scd = scdbatches.BATCH1
-  var tue_scd = scdbatches.BATCH1 
-  var wed_scd = scdbatches.BATCH1 
-  var thr_scd = scdbatches.BATCH1 
-  var fri_scd = scdbatches.BATCH1 
+  var mon_scd = scdbatches.TEMP
+  var tue_scd = scdbatches.TEMP 
+  var wed_scd = scdbatches.TEMP 
+  var thr_scd = scdbatches.TEMP 
+  var fri_scd = scdbatches.TEMP 
  /*
   var mon_scd = scdbatches.SCDBATCH1
   var tue_scd = scdbatches.SCDBATCH2 
@@ -409,9 +409,11 @@ function VANBBY_CHECKLISTS() {
   dates.THISWEEK_FRI_FIRSTOFMONTH_YYYYMMDD(),
   dates.THISWEEK_FRI_FIRSTOFPREVMONTH_YYYYMMDD(),
   outqs.OUTQ5, dates.THISWEEK_MON_YYYYMMDD(), 
-  dates.THISWEEK_FRI_MMDDYYYY(), scdbatches.SCDBATCH5, 
+  dates.THISWEEK_FRI_MMDDYYYY(), scdbatches.TEMP, 
   filelist, filenames)
 
+
+//scdbatches.SCDBATCH5, // REINSTATE SCDBATCHES WHEN READY
 
   for(i in filenames) {
     insertFileDetails(filenames[i], DIR, filelist)
