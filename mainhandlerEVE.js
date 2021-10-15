@@ -166,12 +166,14 @@ function HOFC_CHECKLISTS(){
     scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
+/*
+  // USE FOR WKND FRI?
   HOFC_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
     scdbatches.TEMP,
     outqs.OUTQ5, filelist, filenames)                
-
+*/
   
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
@@ -212,12 +214,14 @@ function HOFC_REG_CHECKLISTS(){
     scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
+/*
+  // USE FOR WKND FRI?
   HOFC_REG_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
     scdbatches.TEMP,
     outqs.OUTQ5, filelist, filenames)                
-
+*/
   
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
@@ -257,12 +261,14 @@ function HOFC_ADM_CHECKLISTS(){
     scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
+/*
+  // USE FOR WKND FRI?
   HOFC_ADM_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
     scdbatches.TEMP,
     outqs.OUTQ5, filelist, filenames)                
-
+*/
   
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
@@ -305,11 +311,14 @@ function RICH_CHECKLISTS(){
     scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
+/*
+  // USE FOR WKND FRI?
   RICH_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
     scdbatches.TEMP,
-    outqs.OUTQ5, filelist, filenames)                
+    outqs.OUTQ5, filelist, filenames)
+*/                
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
   }
@@ -346,11 +355,15 @@ function RICH_CHECKLISTS(){
     scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
+/*
+  // USE FOR WKND FRI?
   RICH_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
     scdbatches.TEMP,
-    outqs.OUTQ5, filelist, filenames)                
+    outqs.OUTQ5, filelist, filenames)   
+*/
+
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
   }
@@ -388,11 +401,15 @@ function RICH_ADM_CHECKLISTS(){
     scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
+/*
+  // USE FOR WKND FRI?
   RICH_ADM_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
     scdbatches.TEMP,
-    outqs.OUTQ5, filelist, filenames)                
+    outqs.OUTQ5, filelist, filenames)
+*/
+
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
   }
@@ -430,11 +447,15 @@ function RICH_REG_CHECKLISTS(){
     scdbatches.TEMP,
     outqs.OUTQ4, filelist, filenames)  
 
+/*
+  // USE FOR WKND FRI?
   RICH_REG_CHECKLIST(numdates.NUMDATE_EVGY_MON, 
     dates.THISWEEK_FRI_MMDD(),
     dates.THISWEEK_FRI_MMDDYYYY(), 
     scdbatches.TEMP,
-    outqs.OUTQ5, filelist, filenames)                
+    outqs.OUTQ5, filelist, filenames) 
+*/               
+
   for(i in filenames) {
     file.insertFileDetails(filenames[i], DIR, filelist)
   }
@@ -443,10 +464,41 @@ function RICH_REG_CHECKLISTS(){
 }
 
 
+// function HOFC_MVLOGS(){
+//   var filelist = []
+//   var filenames = []  
+
+
+//   for(i in filenames) {
+//     file.insertFileDetails(filenames[i], DIR, filelist)
+//   }
+  
+//   return filelist
+// }
+
+
+// function RICH_MVLOGS(){
+//   var filelist = []
+//   var filenames = []  
+
+
+//   for(i in filenames) {
+//     file.insertFileDetails(filenames[i], DIR, filelist)
+//   }
+  
+//   return filelist
+// }\]
+
 
 function WPG_MOVEALLS(){
   var filelist = []
   var filenames = []  
+
+
+// tonight_actualdate_MMDDYYYY,
+//   tonight_actualdate_MMDDYY,
+//   outq
+
 
   WPG_MOVEALL(numdates.NUMDATE_EVGY_TUE, 
     dates.THISWEEK_MON_MMDD(),
@@ -739,7 +791,9 @@ function RICH_REG_CHECKLIST(today_numdate, today_MMDD,
 
 
 
-
+// tonight_actualdate_MMDDYYYY,
+//   tonight_actualdate_MMDDYY,
+//   outq
 function WPG_MOVEALL(today_numdate, today_MMDD, 
     tonight_actualdate_MMDDYYYY,
   tonight_actualdate_MMDDYY,

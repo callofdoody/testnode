@@ -2721,7 +2721,7 @@ function macrobody(scddate_MMDDYYY,
    autECLSession.autECLPS.SendKeys " SBMJOB CMD(RGZPFM FILE(PDBLLIB000/BLPMST02)) "
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys " JOB(RGZPFM) SCDDATE(`+ scddate_MMDDYYY +`) JOBQ(`+ scdbatch +`) SCDTIME(190000) HOLD(*YES)"
+   autECLSession.autECLPS.SendKeys " JOB(RGZPFM) SCDDATE(`+ scddate_MMDDYYY +`) JOBQ(`+ scdbatch +`) SCDTIME(190000)"
 
 
    autECLSession.autECLOIA.WaitForInputReady

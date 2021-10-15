@@ -56,9 +56,9 @@ REM YESTERDAYS **BILLING** date YYYYMMDD is: `+yesterday_billdate_YYYYMMDD+`
 
 REM Next Monday Date YYYYMMDD is: `+nextmon_billdate_YYYYMMDD+`
 
-REM First day of last month YYYYMMDD is: `+firstofmonth_billdate_YYYYMMDD+`
+REM First day of last month YYYYMMDD is: `+firstofPREVmonth_billdate_YYYYMMDD+`
 
-REM First day of THIS month YYYYMMDD is: `+firstofPREVmonth_billdate_YYYYMMDD+`
+REM First day of THIS month YYYYMMDD is: `+firstofmonth_billdate_YYYYMMDD+`
 
 REM OUTQ of the day is: "`+outq+`
 `}

@@ -335,6 +335,28 @@ module.exports = {
     return date_MMDDYYYY(LASTWEEK_SUN())
   },
 
+  LASTWEEK_MON_YYYYMMDD: function() {
+    return date_YYYYMMDD(LASTWEEK_MON())
+  },
+  LASTWEEK_TUE_YYYYMMDD: function() {
+    return date_YYYYMMDD(LASTWEEK_TUE())
+  },
+  LASTWEEK_WED_YYYYMMDD: function() {
+    return date_YYYYMMDD(LASTWEEK_WED())
+  },
+  LASTWEEK_THR_YYYYMMDD: function() {
+    return date_YYYYMMDD(LASTWEEK_THR())
+  },
+  LASTWEEK_FRI_YYYYMMDD: function() {
+    return date_YYYYMMDD(LASTWEEK_FRI())
+  },
+  LASTWEEK_SAT_YYYYMMDD: function() {
+    return date_YYYYMMDD(LASTWEEK_SAT())
+  },
+  LASTWEEK_SUN_YYYYMMDD: function() {
+    return date_YYYYMMDD(LASTWEEK_SUN())
+  },
+
 
   TWOWEEKSAGO_MON_YYYYMMDD: function() {
     return date_YYYYMMDD(TWOWEEKSAGO_MON())
@@ -502,11 +524,11 @@ module.exports = {
 const ONEDAY = 24*60*60000
 
 function normalizeMonth(num) {
-       return num < 10 ? '0'+ num : num
+       return num < 10 ? '0'+ num : '' + num
 }
 
 function normalizeDay(num) {
-       return num < 10 ? '0'+ num : num
+       return num < 10 ? '0'+ num : '' + num
 }
 
 function date_MMDD(date) {
@@ -586,15 +608,25 @@ function THISWEEK_FRI_EARLIERMONDAY() { return ANCHORDATE_THISWEEKMONDAY};
 
 function THISWEEK_FRI_LASTSATURDAY() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - 2*ONEDAY)};
 
+// 41 days back 
+// 41 days back (FRI targeting SAT too)
+// 39 days back (FRI targeting MON)
+function THISWEEK_MON_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - 41*ONEDAY)};
+function THISWEEK_TUE_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (41-1)*ONEDAY)};
+function THISWEEK_WED_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (41-2)*ONEDAY)};
+function THISWEEK_THR_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (41-3)*ONEDAY)};
+function THISWEEK_FRI_OLDESTOUTQ_SAT() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (41-4)*ONEDAY)};
+function THISWEEK_FRI_OLDESTOUTQ_MON() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (39-4)*ONEDAY)};
+
 // 34 days back 
 // 34 days back (FRI targeting SAT too)
 // 32 days back (FRI targeting MON)
-function THISWEEK_MON_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - 34*ONEDAY)};
-function THISWEEK_TUE_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-1)*ONEDAY)};
-function THISWEEK_WED_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-2)*ONEDAY)};
-function THISWEEK_THR_OLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-3)*ONEDAY)};
-function THISWEEK_FRI_OLDESTOUTQ_SAT() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-4)*ONEDAY)};
-function THISWEEK_FRI_OLDESTOUTQ_MON() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (32-4)*ONEDAY)};
+function THISWEEK_MON_NEXTOLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - 34*ONEDAY)};
+function THISWEEK_TUE_NEXTOLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-1)*ONEDAY)};
+function THISWEEK_WED_NEXTOLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-2)*ONEDAY)};
+function THISWEEK_THR_NEXTOLDESTOUTQ() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-3)*ONEDAY)};
+function THISWEEK_FRI_NEXTOLDESTOUTQ_SAT() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (34-4)*ONEDAY)};
+function THISWEEK_FRI_NEXTOLDESTOUTQ_MON() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() - (32-4)*ONEDAY)};
 
 
 function NEXTWEEK_SUN() {return new Date(ANCHORDATE_THISWEEKMONDAY.valueOf() + 6*ONEDAY)};

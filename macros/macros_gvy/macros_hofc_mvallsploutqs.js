@@ -55,7 +55,7 @@ function macrobody(outq, datesixdaysago_MMDD, oldestoutq_MMDD) {
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq +``+ oldestoutq_MMDD +`) OUTQL(PDSYLIB000 PDSYLIB007 PDSYLIB016 PDSYLIB044 PDSYLIB053)"
+   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq +``+ oldestoutq_MMDD +`) OUTQL(PDSYLIB000 PDSYLIB007 PDSYLIB016)"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -64,7 +64,22 @@ function macrobody(outq, datesixdaysago_MMDD, oldestoutq_MMDD) {
    autECLSession.autECLPS.WaitForCursor 18,7,10000
 
    autECLSession.autECLOIA.WaitForAppAvailable        
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq +``+ oldestoutq_MMDD +`) OUTQL(PDSYLIB044 PDSYLIB053)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
    
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable 
+
+   
+
+
 
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq +``+ oldestoutq_MMDD +`) OUTQL(PDSYLIB068 PDSYLIB071 PDSYLIB077)"

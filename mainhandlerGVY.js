@@ -339,7 +339,14 @@ function RICHHOFC_FULLCHECKLISTS() {
   
   return filelist
 }
-
+/*
+function (today_billdate_YYYYMMDD,
+  yesterday_billdate_YYYYMMDD, 
+  nextmon_billdate_YYYYMMDD,
+  firstofmonth_billdate_YYYYMMDD,
+  firstofPREVmonth_billdate_YYYYMMDD,  
+  outq)
+*/
 function VANDIVS_FULLCHECKLISTS() {
   var filelist = []
   var filenames = []
@@ -367,7 +374,14 @@ function VANDIVS_FULLCHECKLISTS() {
 }
 
 
-
+/*
+function (today_billdate_YYYYMMDD,
+  yesterday_billdate_YYYYMMDD, 
+  nextmon_billdate_YYYYMMDD,
+  firstofmonth_billdate_YYYYMMDD,
+  firstofPREVmonth_billdate_YYYYMMDD,  
+  outq)
+*/
 function VANBBY_CHECKLISTS() {
   var filelist = []
   var filenames = []
@@ -375,7 +389,7 @@ function VANBBY_CHECKLISTS() {
 
 
   VANBBY_DAY_CHECKLIST(numdates.NUMDATE_EVGY_MON, dates.THISWEEK_MON_MMDD(),    dates.THISWEEK_MON_YYYYMMDD(), 
-  dates.THISWEEK_SUN_YYYYMMDD(), 
+  dates.LASTWEEK_FRI_YYYYMMDD(), 
   dates.NEXTWEEK_MON_YYYYMMDD(),
   dates.THISWEEK_MON_FIRSTOFMONTH_YYYYMMDD(),
   dates.THISWEEK_MON_FIRSTOFPREVMONTH_YYYYMMDD(),
@@ -422,7 +436,14 @@ function VANBBY_CHECKLISTS() {
   return filelist
 }
 
-
+/*
+function (today_billdate_YYYYMMDD,
+  yesterday_billdate_YYYYMMDD, 
+  nextmon_billdate_YYYYMMDD,
+  firstofmonth_billdate_YYYYMMDD,
+  firstofPREVmonth_billdate_YYYYMMDD,  
+  outq) 
+   */
 function VANBBY_DAY_CHECKLIST(today_numdate, today_MMDD, today_billdate_YYYYMMDD,
   yesterday_billdate_YYYYMMDD, 
   nextmon_billdate_YYYYMMDD,
@@ -612,6 +633,15 @@ date_lastsat_MMDD, oldestoutq_sat_MMDD)
 }
 
 function CREATEOUTQS_NEXTWK(macro_obj,filelist, filenames) {
+/*
+getmacro: function (date_mon_nextwk_MMDD,
+date_tue_nextwk_MMDD,
+date_wed_nextwk_MMDD,
+date_thr_nextwk_MMDD,
+date_fri_nextwk_MMDD,
+date_sat_nextwk_MMDD)
+ */
+
   var fname = macro_obj.filename(MACROSERIES+"_"+GVY_SHIFT,
     dates.NEXTWEEK_MON_MMDD(),
     dates.NEXTWEEK_SAT_MMDD())

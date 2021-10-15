@@ -927,50 +927,6 @@ function macrobody(prevdate_MMDDYYYY,
    autECLSession.autECLOIA.WaitForAppAvailable
 
 
-   ' ========== ====================== ====================== =============== ============
-
-
-
-   
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "EXECUTE SQL('select * from PDSALIB020/SAPDL31A(MACS020)') PCFMT(*XLS) TOSTMF(MACSVAN) REPLACE(*YES) RECIPIENT('lsalt@core-mark.com, fdeguzman@core-mark.com')"
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "[enter]"
-   
-   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
-
-   autECLSession.autECLPS.WaitForCursor 18,7,10000
-
-   autECLSession.autECLOIA.WaitForAppAvailable
-
-   
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "EXECUTE SQL('select * from PDSALIB079/SAPDL31A(MACS079)') PCFMT(*XLS) TOSTMF(MACSWPG) REPLACE(*YES) RECIPIENT('lsalt@core-mark.com, fdeguzman@core-mark.com')"
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "[enter]"
-   
-   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
-
-   autECLSession.autECLPS.WaitForCursor 18,7,10000
-
-   autECLSession.autECLOIA.WaitForAppAvailable
-      
-
-
-   
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "EXECUTE SQL('select * from PDSALIB172/SAPDL31A(MACS172)') PCFMT(*XLS) TOSTMF(MACSCGY) REPLACE(*YES) RECIPIENT('lsalt@core-mark.com, fdeguzman@core-mark.com')"
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "[enter]"
-   
-   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
-
-   autECLSession.autECLPS.WaitForCursor 18,7,10000
-
-   autECLSession.autECLOIA.WaitForAppAvailable
-            
-
-
 
 
    ' ========== ====================== ====================== =============== ============            

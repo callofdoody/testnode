@@ -1,23 +1,46 @@
-[PCOMM SCRIPT HEADER]
-LANGUAGE=VBSCRIPT
-DESCRIPTION=
-[PCOMM SCRIPT SOURCE]
-OPTION EXPLICIT
-autECLSession.SetConnectionByName(ThisSessionName)
+const macroutils = require('./macroutils_mvallsplfoutqs')
+const fs = require('fs');
+
+const MACRO_LABEL = "FULLCHECKLIST"
+const MACRO_ENV = "_vandivs"
+
+module.exports = {
+  filename: function(series, numday, date_MMDD) {
+    return macroutils.filename(series, 
+    MACRO_ENV, MACRO_LABEL, numday, date_MMDD)
+  },
+
+  getmacro: function (prevdate_MMDDYYYY, 
+  yesterday_outq) {
+    return mainmacro(prevdate_MMDDYYYY, 
+  yesterday_outq)
+  },
+
+  variables: function (prevdate_MMDDYYYY, 
+  yesterday_outq) {
+    return variables(prevdate_MMDDYYYY, 
+  yesterday_outq)
+  },
+
+  macrobody: function (prevdate_MMDDYYYY, 
+  yesterday_outq) {
+    return macrobody(prevdate_MMDDYYYY, 
+  yesterday_outq)
+  }    
+};
+
+function variables(prevdate_MMDDYYYY, 
+  yesterday_outq) {
+  return `
+REM Yesterday Date MMDDYYYY is: `+prevdate_MMDDYYYY+`
+
+REM LAST DAY's OUTQ is: /`+yesterday_outq+`
+  `}
 
 
-REM Yesterday Date MMDDYYYY is: 06172021
-
-REM LAST DAY's OUTQ is: /OUTQ4
-  
-
-REM This line calls the macro subroutine
-subSub1_
-
-sub subSub1_()
-   autECLSession.autECLOIA.WaitForAppAvailable
-
-
+function macrobody(prevdate_MMDDYYYY, 
+  yesterday_outq) {
+  return `
    
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[pf7]"
@@ -192,7 +215,7 @@ sub subSub1_()
    ' ========== ====================== ====================== =============== ============
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQA) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQA) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -204,7 +227,7 @@ sub subSub1_()
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQB) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQB) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -215,7 +238,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQC) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQC) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -226,7 +249,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQD) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQD) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -237,7 +260,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQE) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQE) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -250,7 +273,7 @@ sub subSub1_()
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQH) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQH) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -261,7 +284,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable   
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQJ) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQJ) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -272,7 +295,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable   
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQK) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/OUTQK) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -284,7 +307,7 @@ sub subSub1_()
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/DRYROOM) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/DRYROOM) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -300,7 +323,7 @@ sub subSub1_()
    
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/EMAIL) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/EMAIL) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -314,7 +337,7 @@ sub subSub1_()
    
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/RCOUTQ1) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/RCOUTQ1) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -325,7 +348,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable    
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/RFOUTQ1) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/RFOUTQ1) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -336,7 +359,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable    
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/RFOUTQ2) TOOUTQ(PDSYLIB110/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB110/RFOUTQ2) TOOUTQ(PDSYLIB110/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -600,7 +623,7 @@ sub subSub1_()
 
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(LASER020A) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(LASER020A) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -611,7 +634,29 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(LASER020B) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(LASER020B) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable
+
+   'autECLSession.autECLOIA.WaitForInputReady
+   'autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(ARCHIVE) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
+   'autECLSession.autECLOIA.WaitForInputReady
+   'autECLSession.autECLPS.SendKeys "[enter]"
+   
+   'autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   'autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   'autECLSession.autECLOIA.WaitForAppAvailable
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(EMAIL) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -622,7 +667,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(ARCHIVE) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQA) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -633,7 +678,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(EMAIL) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQB) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -644,7 +689,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQA) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB020/OUTQB) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -655,7 +700,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQB) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQD) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -666,7 +711,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB020/OUTQB) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RICHMOND) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -677,7 +722,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQD) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(SHELF020) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -688,7 +733,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RICHMOND) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(DRYROOM) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -699,29 +744,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(SHELF020) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "[enter]"
-   
-   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
-
-   autECLSession.autECLPS.WaitForCursor 18,7,10000
-
-   autECLSession.autECLOIA.WaitForAppAvailable
-
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(DRYROOM) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "[enter]"
-   
-   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
-
-   autECLSession.autECLPS.WaitForCursor 18,7,10000
-
-   autECLSession.autECLOIA.WaitForAppAvailable
-
-   autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(QPRINT) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(QPRINT) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -732,7 +755,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable                              
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RFOUTQ1) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RFOUTQ1) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -743,7 +766,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable        
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RFOUTQ2) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RFOUTQ2) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -755,7 +778,7 @@ sub subSub1_()
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RCOUTQ1) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(RCOUTQ1) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -766,7 +789,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable           
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQL) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQL) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -777,7 +800,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable           
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(NOPRINT) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(NOPRINT) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -788,7 +811,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable           
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(BBYLASER02) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(BBYLASER02) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -799,7 +822,7 @@ sub subSub1_()
    autECLSession.autECLOIA.WaitForAppAvailable           
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQW) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(OUTQW) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -818,7 +841,7 @@ sub subSub1_()
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB020/SHELFZ) TOOUTQ(PDSYLIB020/OUTQ4) PERIOD((*AVAIL) (175959 03032021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(PDSYLIB020/SHELFZ) TOOUTQ(PDSYLIB020/`+yesterday_outq+`) PERIOD((*AVAIL) (175959 03032021))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -868,7 +891,7 @@ sub subSub1_()
 
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(QPRINTS) TOOUTQ(QPRINT2) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(QPRINTS) TOOUTQ(QPRINT2) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -893,7 +916,7 @@ sub subSub1_()
    
    
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(QGPL/QPJOBLOG1) TOOUTQ(QGPL/QPJOBLOG2) PERIOD((*AVAIL) (175959 06172021))"
+   autECLSession.autECLPS.SendKeys "MOVESPLF FROMOUTQ(QGPL/QPJOBLOG1) TOOUTQ(QGPL/QPJOBLOG2) PERIOD((*AVAIL) (175959 `+prevdate_MMDDYYYY+`))"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -955,7 +978,4 @@ sub subSub1_()
                                  
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "DONE"
-  
-
-
-end sub
+  `}  

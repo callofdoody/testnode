@@ -14,7 +14,7 @@ const moveFile = require('move-file');
 
 var MAINSWITCH = true;
 
-var SHIFT = "GV3"
+var SHIFT = "GV2"
 
 var MACROTIMER = 99999
 
@@ -40,12 +40,12 @@ var RICHM_ADM_ON = true
 // =============
 var MOVESPLF_ON = false
 
-var CGY_ON = false
-var VANBBY_ON = false
-var VANDIVS_ON = false
+var CGY_ON = true
+var VANBBY_ON = true
+var VANDIVS_ON = true
 
-var HOMEOFC_ON = true
-var RICHM_ON = true
+var HOMEOFC_ON = false
+var RICHM_ON = false
 var SCD_VBCGY_ON = false
 
 

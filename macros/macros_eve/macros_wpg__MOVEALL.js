@@ -48,8 +48,6 @@ REM Tonights ACTUAL Date MMDDYY is: `+ tonight_actualdate_MMDDYY +`
 
 REM LAST DAY's OUTQ is: /`+ outq +`
 
-
-
   `}
 
 

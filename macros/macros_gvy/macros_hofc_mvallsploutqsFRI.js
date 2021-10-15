@@ -76,7 +76,7 @@ date_lastsat_MMDD, oldestoutq_sat_MMDD) {
 
 
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq_sat +``+ oldestoutq_sat_MMDD +`) OUTQL(PDSYLIB007 PDSYLIB016 PDSYLIB044 PDSYLIB053 PDSYLIB071)"
+   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq_sat +``+ oldestoutq_sat_MMDD +`) OUTQL(PDSYLIB007 PDSYLIB016 PDSYLIB044)"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
@@ -90,8 +90,36 @@ date_lastsat_MMDD, oldestoutq_sat_MMDD) {
 
 
 
+
    autECLSession.autECLOIA.WaitForInputReady
-   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq_mon +``+ oldestoutq_mon_MMDD +`) OUTQL(PDSYLIB000 PDSYLIB007 PDSYLIB016 PDSYLIB044 PDSYLIB053)"
+   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq_sat +``+ oldestoutq_sat_MMDD +`) OUTQL(PDSYLIB053 PDSYLIB071)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable  
+
+
+
+
+
+
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq_mon +``+ oldestoutq_mon_MMDD +`) OUTQL(PDSYLIB000 PDSYLIB007 PDSYLIB016)"
+   autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "[enter]"
+   
+   autECLSession.autECLPS.WaitForAttrib 18,6,"00","3c",3,10000
+
+   autECLSession.autECLPS.WaitForCursor 18,7,10000
+
+   autECLSession.autECLOIA.WaitForAppAvailable        
+
+      autECLSession.autECLOIA.WaitForInputReady
+   autECLSession.autECLPS.SendKeys "DELOUTQ OUTQ(`+ outq_mon +``+ oldestoutq_mon_MMDD +`) OUTQL(PDSYLIB044 PDSYLIB053)"
    autECLSession.autECLOIA.WaitForInputReady
    autECLSession.autECLPS.SendKeys "[enter]"
    
