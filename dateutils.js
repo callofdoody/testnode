@@ -188,10 +188,27 @@ module.exports = {
   },     
 
 
-
-
-
-
+  THISWEEK_MON_DDMMYY: function() {
+    return date_DDMMYY(THISWEEK_MON())
+  },
+  THISWEEK_TUE_DDMMYY: function() {
+    return date_DDMMYY(THISWEEK_TUE())
+  },
+  THISWEEK_WED_DDMMYY: function() {
+    return date_DDMMYY(THISWEEK_WED())
+  },
+  THISWEEK_THR_DDMMYY: function() {
+    return date_DDMMYY(THISWEEK_THR())
+  },
+  THISWEEK_FRI_DDMMYY: function() {
+    return date_DDMMYY(THISWEEK_FRI())
+  },
+  THISWEEK_SAT_DDMMYY: function() {
+    return date_DDMMYY(THISWEEK_SAT())
+  },
+  THISWEEK_SUN_DDMMYY: function() {
+    return date_DDMMYY(THISWEEK_SUN_DAYBEFOREMON())
+  }, 
 
 
   NEXTWEEK_MON_YYYYMMDD: function() {
@@ -562,7 +579,11 @@ function date_MMDDYY(date) {
     + date.getFullYear().toString().substr(-2))
 };
 
-
+function date_DDMMYY(date) {
+    return (normalizeDay(date.getDate())
+    + normalizeMonth(date.getMonth()+1 )
+    + date.getFullYear().toString().substr(-2))
+};
 
 
 function date_firstofPREVmonth_YYYYMMDD(date) {

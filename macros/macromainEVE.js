@@ -14,8 +14,8 @@ const scd_rich_REG = require('./macros_eve/macros_rich_REG_NOTHOENDP')
 const scd_hofc_ADM = require('./macros_eve/macros_hofc_ADM_NOTHOENDP')
 const scd_rich_ADM = require('./macros_eve/macros_rich_ADM_NOTHOENDP')
 
-const scd_hofc_MVLOGS = require('./macros_eve/macros_hofc_mvlogs_DCENP')
-const scd_rich_MVLOGS = require('./macros_eve/macros_rich_mvlogs_DCENP')
+const scd_hofc_MVLOGS = require('./macros_eve/macros_hofc_mvlogsSCD_DCENP')
+const scd_rich_MVLOGS = require('./macros_eve/macros_rich_mvlogsSCD_DCENP')
 
 const cgy_MOVEALL = require('./macros_eve/macros_cgy__MOVEALL')
 const wpg_MOVEALL = require('./macros_eve/macros_wpg__MOVEALL')

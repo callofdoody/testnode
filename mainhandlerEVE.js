@@ -56,8 +56,23 @@ module.exports = {
 
   WPG_MOVEALLS: function() {
     return WPG_MOVEALLS()
-  },  
+  }, 
   
+  RICH_MVLOGS_SCDS: function() {
+    return RICH_MVLOGS_SCDS()
+  },    
+  
+  // RICH_MVLOGS_REGS: function() {
+  //   return RICH_MVLOGS_REGS()
+  // },      
+
+  // HOMEOFC_MVLOGS_SCDS: function() {
+  //   return HOMEOFC_MVLOGS_SCDS()
+  // },    
+  
+  // HOMEOFC_MVLOGS_REGS: function() {
+  //   return HOMEOFC_MVLOGS_REGS()
+  // },        
 
   getDIR: function() {
     return DIR
@@ -567,6 +582,76 @@ function CGY_MOVEALLS(){
 
 
 
+/*
+RICH_MOVELOGS_SCD(today_numdate, today_MMDD, 
+    scddate_MMDDYYY,
+  scdbatch,
+  outq_tonight,
+  strdate_MMDDYY,
+  enddate_MMDDYY, 
+  filelist, filenames) 
+*/
+
+function RICH_MVLOGS_SCDS(){
+  var filelist = []
+  var filenames = []  
+
+  RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_TUE, 
+    dates.THISWEEK_MON_MMDD(),
+    dates.THISWEEK_MON_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ2,
+    dates.THISWEEK_MON_MMDDYY(),
+    dates.THISWEEK_SUN_MMDDYY(),
+     filelist, filenames)
+
+  RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_WED, 
+    dates.THISWEEK_TUE_MMDD(),
+    dates.THISWEEK_TUE_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ3,
+    dates.THISWEEK_TUE_MMDDYY(),
+    dates.THISWEEK_MON_MMDDYY(),    
+     filelist, filenames)  
+
+  RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_THR, 
+    dates.THISWEEK_WED_MMDD(),
+    dates.THISWEEK_WED_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ4,
+    dates.THISWEEK_WED_MMDDYY(),
+    dates.THISWEEK_TUE_MMDDYY(),     
+     filelist, filenames)  
+
+  RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_FRI, 
+    dates.THISWEEK_THR_MMDD(),
+    dates.THISWEEK_THR_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ5,
+    dates.THISWEEK_THR_MMDDYY(),
+    dates.THISWEEK_WED_MMDDYY(),     
+     filelist, filenames)  
+
+
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
+
+function RICH_MVLOGS_REGS(){
+  var filelist = []
+  var filenames = []  
+
+
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
+
 
 function WPG_CHECKLIST_MON(today_numdate, today_MMDD, 
     tonight_billdate_YYYYMMDD,
@@ -826,3 +911,25 @@ function CGY_MOVEALL(today_numdate, today_MMDD,
 }
 
 
+function RICH_MOVELOGS_SCD(today_numdate, today_MMDD, 
+    scddate_MMDDYYY,
+  scdbatch,
+  outq_tonight,
+  strdate_MMDDYY,
+  enddate_MMDDYY, 
+  filelist, filenames) {
+  var fname = macro.scd_rich_MVLOGS().filename(MACROSERIES+"_"+EVE_SHIFT, today_numdate,
+    today_MMDD)
+  var variables = macro.scd_rich_MVLOGS().variables(scddate_MMDDYYY,
+  scdbatch,
+  outq_tonight,
+  strdate_MMDDYY,
+  enddate_MMDDYY)
+  var macrobody = macro.scd_rich_MVLOGS().macrobody(scddate_MMDDYYY,
+  scdbatch,
+  outq_tonight,
+  strdate_MMDDYY,
+  enddate_MMDDYY)    
+  file.createmacro(fname, DIR, variables, macrobody)
+  filenames.push(fname)
+}
