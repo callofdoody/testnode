@@ -350,7 +350,7 @@ function (today_billdate_YYYYMMDD,
 function VANDIVS_FULLCHECKLISTS() {
   var filelist = []
   var filenames = []
-//today_numdate, macrodate_MMDD, 
+
   VANDIVS_FULLCHECKLIST(numdates.NUMDATE_EVGY_MON, dates.THISWEEK_MON_MMDD(),  dates.THISWEEK_SUN_MMDDYYYY(),
   outqs.OUTQ5, filelist, filenames)
 

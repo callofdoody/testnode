@@ -6,6 +6,7 @@ const file = require('./fileutils')
 const dates = require('./dateutils')
 const mainhandlerGVY = require('./mainhandlerGVY')
 const mainhandlerEVE = require('./mainhandlerEVE')
+const mainhandlerEVESUN = require('./mainhandlerEVESUN')
 const shiftcodes = require('./shiftcodes')
 
 const moveFile = require('move-file');
@@ -14,46 +15,48 @@ const moveFile = require('move-file');
 
 var MAINSWITCH = true;
 
-var SHIFT = "EV1"
+var SHIFT = "gv1"
 
-var MACROTIMER = 99999
+var MACROTIMER = 199999
 
 var GVY_ON = false
-var EVE_ON = true
+var EVE_ON = false
 
 var WKNDFRI_ON = false
 var WKND_ON = false
-var EVESUN_ON = false
+var EVESUN_ON = true
 
 // =============
-var WPG_ON = false
+var WPG_ON = true
 
 var CGYMOVE_ON = false
-var WPGMOVE_ON = false
+var WPGMOVE_ON = true
 
 var HOMEOFC_REG_ON = false
 var RICHM_REG_ON = false
-var HOMEOFC_ADM_ON = false
+
+var HOMEOFC_ADM_ON = true
 var RICHM_ADM_ON = false
 
 var RICHM_MVLOGS_SCD_ON = true
+var HOMEOFC_MVLOGS_SCD_ON = true
+
 var RICHM_MVLOGS_REG_ON = false
-var HOMEOFC_MVLOGS_SCD_ON = false
 var HOMEOFC_MVLOGS_REG_ON = false
 
 // =============
 var MOVESPLF_ON = false
 
 var CGY_ON = false
-var VANBBY_ON = false
+var VANBBY_ON = true
 var VANDIVS_ON = false
 
-var HOMEOFC_ON = false
-var RICHM_ON = false
+var HOMEOFC_ON = true
+var RICHM_ON = true
 var SCD_VBCGY_ON = false
 
 
-dates.SETANCHORDATE('Mon Nov 08 2021')
+dates.SETANCHORDATE('Mon Mar 28 2022')
 
 
 
@@ -73,6 +76,45 @@ fs.mkdir(dirname, (err) => {
 });
 
 var myPromise = ""
+
+
+
+
+if (EVESUN_ON) {
+  // SUNDAY EVENING SHIFT
+  SHIFT = shiftcodes.EVE
+  mainhandlerEVESUN.setDIR(dirname)
+  myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+
+      if (WPG_ON) {
+        var wpg = mainhandlerEVESUN.WPG_CHECKLISTS()
+        filelist = filelist.concat(wpg); 
+      }
+               
+      if (WPGMOVE_ON) {
+        var wpgMOVE = mainhandlerEVESUN.WPG_MOVEALLS()
+        filelist = filelist.concat(wpgMOVE); 
+      }
+
+      if (RICHM_MVLOGS_SCD_ON) {
+        var RICHM_MVLOGS_SCD = mainhandlerEVESUN.RICH_MVLOGS_SCDS()  
+        filelist = filelist.concat(RICHM_MVLOGS_SCD);   
+      }
+
+      if (HOMEOFC_MVLOGS_SCD_ON) {
+        var HOMEOFC_MVLOGS_SCD = mainhandlerEVESUN.HOFC_MVLOGS_SCDS()  
+        filelist = filelist.concat(HOMEOFC_MVLOGS_SCD);   
+      }
+
+      
+      resolve(filelist)
+  
+    }, 89999);
+  });
+}
+
+      
 
 if (EVE_ON) {
   // EVENING SHIFT
@@ -98,8 +140,8 @@ if (EVE_ON) {
       }
        
       if (HOMEOFC_ON) {
-        var hofc = mainhandlerEVE.HOFC_CHECKLISTS()  
-        filelist = filelist.concat(hofc); 
+        // var hofc = mainhandlerEVE.HOFC_CHECKLISTS()  
+        // filelist = filelist.concat(hofc); 
       }
       if (HOMEOFC_REG_ON) {
         var hofc = mainhandlerEVE.HOFC_REG_CHECKLISTS()  
@@ -131,17 +173,17 @@ if (EVE_ON) {
         filelist = filelist.concat(RICHM_MVLOGS_REG);   
       }
 
-/*
+
       if (HOMEOFC_MVLOGS_SCD_ON) {
-        var HOMEOFC_MVLOGS_SCD = mainhandlerEVE.RICH_MVLOGS_SCDS()  
+        var HOMEOFC_MVLOGS_SCD = mainhandlerEVE.HOFC_MVLOGS_SCDS()  
         filelist = filelist.concat(HOMEOFC_MVLOGS_SCD);   
       }
 
       if (HOMEOFC_MVLOGS_REG_ON) {
-        var HOMEOFC_MVLOGS_REG = mainhandlerEVE.RICH_MVLOGS_REGS()  
+        var HOMEOFC_MVLOGS_REG = mainhandlerEVE.HOFC_MVLOGS_REGS()  
         filelist = filelist.concat(HOMEOFC_MVLOGS_REG);   
       }
-*/
+
 
     
          

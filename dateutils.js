@@ -25,7 +25,12 @@ module.exports = {
   THISWEEK_FRI_MMDD: function() {
     return date_MMDD(THISWEEK_FRI())
   },
-
+  THISWEEK_SAT_MMDD: function() {
+    return date_MMDD(THISWEEK_SAT())
+  },
+  THISWEEK_SUN_MMDD: function() {
+    return date_MMDD(THISWEEK_SUN_DAYBEFOREMON())
+  },
 
 
   NEXTWEEK_MON_MMDD: function() {

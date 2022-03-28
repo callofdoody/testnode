@@ -66,12 +66,12 @@ module.exports = {
   //   return RICH_MVLOGS_REGS()
   // },      
 
-  // HOMEOFC_MVLOGS_SCDS: function() {
-  //   return HOMEOFC_MVLOGS_SCDS()
-  // },    
+  HOFC_MVLOGS_SCDS: function() {
+    return HOFC_MVLOGS_SCDS()
+  },    
   
-  // HOMEOFC_MVLOGS_REGS: function() {
-  //   return HOMEOFC_MVLOGS_REGS()
+  // HOFC_MVLOGS_REGS: function() {
+  //   return HOFC_MVLOGS_REGS()
   // },        
 
   getDIR: function() {
@@ -601,8 +601,8 @@ function RICH_MVLOGS_SCDS(){
     dates.THISWEEK_MON_MMDDYYYY(),
     scdbatches.TEMP,
     outqs.OUTQ2,
-    dates.THISWEEK_MON_MMDDYY(),
     dates.THISWEEK_SUN_MMDDYY(),
+    dates.THISWEEK_MON_MMDDYY(),
      filelist, filenames)
 
   RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_WED, 
@@ -610,8 +610,8 @@ function RICH_MVLOGS_SCDS(){
     dates.THISWEEK_TUE_MMDDYYYY(),
     scdbatches.TEMP,
     outqs.OUTQ3,
-    dates.THISWEEK_TUE_MMDDYY(),
-    dates.THISWEEK_MON_MMDDYY(),    
+    dates.THISWEEK_MON_MMDDYY(),
+    dates.THISWEEK_TUE_MMDDYY(),    
      filelist, filenames)  
 
   RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_THR, 
@@ -619,8 +619,8 @@ function RICH_MVLOGS_SCDS(){
     dates.THISWEEK_WED_MMDDYYYY(),
     scdbatches.TEMP,
     outqs.OUTQ4,
-    dates.THISWEEK_WED_MMDDYY(),
-    dates.THISWEEK_TUE_MMDDYY(),     
+    dates.THISWEEK_TUE_MMDDYY(),
+    dates.THISWEEK_WED_MMDDYY(),     
      filelist, filenames)  
 
   RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_FRI, 
@@ -628,8 +628,8 @@ function RICH_MVLOGS_SCDS(){
     dates.THISWEEK_THR_MMDDYYYY(),
     scdbatches.TEMP,
     outqs.OUTQ5,
-    dates.THISWEEK_THR_MMDDYY(),
-    dates.THISWEEK_WED_MMDDYY(),     
+    dates.THISWEEK_WED_MMDDYY(),
+    dates.THISWEEK_THR_MMDDYY(),     
      filelist, filenames)  
 
 
@@ -639,6 +639,7 @@ function RICH_MVLOGS_SCDS(){
   
   return filelist
 }
+
 
 function RICH_MVLOGS_REGS(){
   var filelist = []
@@ -652,6 +653,67 @@ function RICH_MVLOGS_REGS(){
   return filelist
 }
 
+
+function HOFC_MVLOGS_SCDS(){
+  var filelist = []
+  var filenames = []  
+
+  HOFC_MOVELOGS_SCD(numdates.NUMDATE_EVGY_TUE, 
+    dates.THISWEEK_MON_MMDD(),
+    dates.THISWEEK_MON_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ2,
+    dates.THISWEEK_SUN_MMDDYY(),
+    dates.THISWEEK_MON_MMDDYY(),
+     filelist, filenames)
+
+  HOFC_MOVELOGS_SCD(numdates.NUMDATE_EVGY_WED, 
+    dates.THISWEEK_TUE_MMDD(),
+    dates.THISWEEK_TUE_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ3,
+    dates.THISWEEK_MON_MMDDYY(),
+    dates.THISWEEK_TUE_MMDDYY(),    
+     filelist, filenames)  
+
+  HOFC_MOVELOGS_SCD(numdates.NUMDATE_EVGY_THR, 
+    dates.THISWEEK_WED_MMDD(),
+    dates.THISWEEK_WED_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ4,
+    dates.THISWEEK_TUE_MMDDYY(),
+    dates.THISWEEK_WED_MMDDYY(),     
+     filelist, filenames)  
+
+  HOFC_MOVELOGS_SCD(numdates.NUMDATE_EVGY_FRI, 
+    dates.THISWEEK_THR_MMDD(),
+    dates.THISWEEK_THR_MMDDYYYY(),
+    scdbatches.TEMP,
+    outqs.OUTQ5,
+    dates.THISWEEK_WED_MMDDYY(),
+    dates.THISWEEK_THR_MMDDYY(),     
+     filelist, filenames)  
+
+
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
+
+
+function HOFC_MVLOGS_REGS(){
+  var filelist = []
+  var filenames = []  
+
+
+  for(i in filenames) {
+    file.insertFileDetails(filenames[i], DIR, filelist)
+  }
+  
+  return filelist
+}
 
 function WPG_CHECKLIST_MON(today_numdate, today_MMDD, 
     tonight_billdate_YYYYMMDD,
@@ -926,6 +988,30 @@ function RICH_MOVELOGS_SCD(today_numdate, today_MMDD,
   strdate_MMDDYY,
   enddate_MMDDYY)
   var macrobody = macro.scd_rich_MVLOGS().macrobody(scddate_MMDDYYY,
+  scdbatch,
+  outq_tonight,
+  strdate_MMDDYY,
+  enddate_MMDDYY)    
+  file.createmacro(fname, DIR, variables, macrobody)
+  filenames.push(fname)
+}
+
+
+function HOFC_MOVELOGS_SCD(today_numdate, today_MMDD, 
+    scddate_MMDDYYY,
+  scdbatch,
+  outq_tonight,
+  strdate_MMDDYY,
+  enddate_MMDDYY, 
+  filelist, filenames) {
+  var fname = macro.scd_hofc_MVLOGS().filename(MACROSERIES+"_"+EVE_SHIFT, today_numdate,
+    today_MMDD)
+  var variables = macro.scd_hofc_MVLOGS().variables(scddate_MMDDYYY,
+  scdbatch,
+  outq_tonight,
+  strdate_MMDDYY,
+  enddate_MMDDYY)
+  var macrobody = macro.scd_hofc_MVLOGS().macrobody(scddate_MMDDYYY,
   scdbatch,
   outq_tonight,
   strdate_MMDDYY,

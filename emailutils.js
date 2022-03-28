@@ -14,7 +14,7 @@ var mail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'callofduty.blackupss@gmail.com',
-    pass: 'sanfran99'
+    pass: 'doodyfoody12'
   }
 });
 

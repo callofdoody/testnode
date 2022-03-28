@@ -1,4 +1,4 @@
-const macroutils = require('./macroutils_mvallsplfoutqs')
+const macroutils = require('../macros_eve/macroutils_mvallsplfoutqs')
 const fs = require('fs');
 
 const MACRO_LABEL = "bl450-sq60"
