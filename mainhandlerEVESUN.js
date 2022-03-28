@@ -65,7 +65,7 @@ function (tonight_billdate_YYYYMMDD,
   tommorrow_night_billdate_YYYY_MM_DD,
   outq)
 */
-  WPG_CHECKLIST_SUN(numdates.NUMDATE_WKND_SUN, 
+  WPG_CHECKLIST_SUN(numdates.NUMDATE_EVGY_SUN, 
     dates.THISWEEK_MON_MMDD(), 
     dates.THISWEEK_TUE_YYYYMMDD(), 
     dates.THISWEEK_TUE_YYYY_MM_DD(), 
@@ -91,7 +91,7 @@ function WPG_MOVEALLS(){
 
 
 
-  WPG_MOVEALL(numdates.NUMDATE_WKND_SUN, 
+  WPG_MOVEALL(numdates.NUMDATE_EVGY_SUN, 
     dates.THISWEEK_SUN_MMDD(),
     dates.THISWEEK_SUN_MMDDYYYY(),
     dates.THISWEEK_SUN_MMDDYY(), 
@@ -120,7 +120,7 @@ function RICH_MVLOGS_SCDS(){
   var filelist = []
   var filenames = []  
 
-  RICH_MOVELOGS_SCD(numdates.NUMDATE_WKND_SUN, 
+  RICH_MOVELOGS_SCD(numdates.NUMDATE_EVGY_SUN, 
     dates.THISWEEK_SUN_MMDD(),
     dates.THISWEEK_SUN_MMDDYYYY(),
     scdbatches.TEMP,
@@ -163,7 +163,7 @@ function HOFC_MVLOGS_SCDS(){
   var filelist = []
   var filenames = []  
 
-  HOFC_MOVELOGS_SCD(numdates.NUMDATE_WKND_SUN, 
+  HOFC_MOVELOGS_SCD(numdates.NUMDATE_EVGY_SUN, 
     dates.THISWEEK_SUN_MMDD(),
     dates.THISWEEK_SUN_MMDDYYYY(),
     scdbatches.TEMP,
